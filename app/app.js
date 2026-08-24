@@ -105,6 +105,44 @@
     });
   }
 
+  /** 現在ファイル基準で相対リンクをリポ内パスに解決。外部なら null */
+  function resolveDocPath(fromPath, href) {
+    if (!href || href.startsWith("#") || /^https?:\/\//i.test(href) || href.startsWith("mailto:")) {
+      return null;
+    }
+    const clean = href.split("#")[0].split("?")[0];
+    if (!clean) return null;
+    if (!/\.md$/i.test(clean)) return null;
+
+    let path;
+    if (clean.startsWith("/")) {
+      path = clean.replace(/^\/+/, "");
+    } else if (clean.startsWith("docs/")) {
+      path = clean;
+    } else {
+      const dir = fromPath.includes("/") ? fromPath.slice(0, fromPath.lastIndexOf("/") + 1) : "";
+      const parts = (dir + clean).split("/");
+      const out = [];
+      for (const part of parts) {
+        if (!part || part === ".") continue;
+        if (part === "..") out.pop();
+        else out.push(part);
+      }
+      path = out.join("/");
+    }
+    return path;
+  }
+
+  function onViewClick(ev) {
+    const a = ev.target.closest("a");
+    if (!a || !$("view-pane").contains(a)) return;
+    const href = a.getAttribute("href") || "";
+    const docPath = resolveDocPath(state.path || "", href);
+    if (!docPath) return;
+    ev.preventDefault();
+    openFile(docPath);
+  }
+
   function setMode(mode) {
     state.mode = mode;
     $("btn-view").classList.toggle("active", mode === "view");
@@ -192,6 +230,7 @@
   }
 
   function wire() {
+    $("view-pane").addEventListener("click", onViewClick);
     $("btn-view").addEventListener("click", () => setMode("view"));
     $("btn-edit").addEventListener("click", () => setMode("edit"));
     $("btn-save").addEventListener("click", saveToGitHub);
