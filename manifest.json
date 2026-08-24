@@ -1,0 +1,14 @@
+{
+  "title": "クルハブ",
+  "owner": "butti0108-spec",
+  "repo": "kuru-hub",
+  "branch": "main",
+  "files": [
+    { "path": "docs/運用ボード.md", "title": "運用ボード", "group": "日常" },
+    { "path": "docs/README.md", "title": "docs目次", "group": "日常" },
+    { "path": "docs/確定/2026-08-25-手足方式.md", "title": "手足方式", "group": "確定" },
+    { "path": "docs/確定/2026-08-24-ココナラ1万円キッカフェ半額.md", "title": "ココナラ／キッカフェ", "group": "確定" },
+    { "path": "docs/進行中/README.md", "title": "進行中メモ", "group": "進行中" },
+    { "path": "docs/inbox.md", "title": "貼り付け箱（他AI・メモ）", "group": "日常" }
+  ]
+}

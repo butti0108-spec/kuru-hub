@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>クルハブ</title>
+  <link rel="stylesheet" href="app/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="app/app.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="side-head">
+        <strong>クルハブ</strong>
+        <button type="button" id="btn-reload" title="再読込">↻</button>
+      </div>
+      <nav id="file-list"></nav>
+      <div class="side-foot">
+        <button type="button" id="btn-settings">設定（保存用トークン）</button>
+        <p id="status" class="status"></p>
+      </div>
+    </aside>
+    <main id="main">
+      <header id="toolbar">
+        <div id="current-title">—</div>
+        <div class="actions">
+          <button type="button" id="btn-view" class="active">表示</button>
+          <button type="button" id="btn-edit">編集</button>
+          <button type="button" id="btn-save" disabled>GitHubに保存</button>
+          <a id="link-github" href="#" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </header>
+      <section id="view-pane" class="pane"></section>
+      <textarea id="edit-pane" class="pane hidden" spellcheck="false"></textarea>
+    </main>
+  </div>
+
+  <dialog id="settings-dialog">
+    <form method="dialog" id="settings-form">
+      <h2>設定（自分用）</h2>
+      <p class="hint">外から編集してリポに書くときだけ必要。トークンはこの端末のブラウザにだけ保存（サーバには送らない）。</p>
+      <label>GitHub Personal Access Token（repo 権限）
+        <input type="password" id="token-input" autocomplete="off" />
+      </label>
+      <label class="check"><input type="checkbox" id="token-clear" /> 保存済みトークンを消す</label>
+      <div class="dlg-actions">
+        <button type="submit" value="cancel">閉じる</button>
+        <button type="submit" value="ok" id="btn-save-settings">保存</button>
+      </div>
+      <p class="hint">作り方: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained または classic（repo）</p>
+    </form>
+  </dialog>
+</body>
+</html>

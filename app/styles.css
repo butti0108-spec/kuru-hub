@@ -1,0 +1,171 @@
+:root {
+  --bg: #f4f4f0;
+  --panel: #fff;
+  --ink: #111;
+  --muted: #555;
+  --line: #ccc;
+  --accent: #0b57d0;
+  --side: 220px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font: 15px/1.55 system-ui, "Segoe UI", "Hiragino Sans", sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+#app {
+  display: grid;
+  grid-template-columns: var(--side) 1fr;
+  height: 100%;
+}
+
+#sidebar {
+  background: #1e1e1e;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #000;
+  overflow: auto;
+}
+
+.side-head, .side-foot {
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid #333;
+}
+
+.side-foot { border-bottom: none; border-top: 1px solid #333; margin-top: auto; }
+
+.side-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#file-list { padding: 0.4rem 0; flex: 1; }
+
+.group {
+  font-size: 0.7rem;
+  color: #9aa;
+  padding: 0.55rem 0.7rem 0.15rem;
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+.file-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  color: #eee;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.file-btn:hover { background: #333; }
+.file-btn.active { background: #0b57d0; color: #fff; }
+
+#main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
+#toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0.7rem;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+#current-title { font-weight: 700; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+
+button, .actions a {
+  font: inherit;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid var(--line);
+  background: #fafafa;
+  color: var(--ink);
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+#btn-reload, #btn-settings {
+  color: #eee;
+  background: #333;
+  border-color: #555;
+}
+
+.pane {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem 1.1rem 2rem;
+  background: var(--panel);
+}
+
+#edit-pane {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  resize: none;
+  font: 14px/1.45 ui-monospace, "Cascadia Code", Consolas, monospace;
+  padding: 0.85rem 1rem;
+}
+
+.hidden { display: none !important; }
+
+#view-pane h1 { font-size: 1.35rem; margin: 0 0 0.6rem; }
+#view-pane h2 { font-size: 1.1rem; margin: 1.3rem 0 0.45rem; border-bottom: 1px solid var(--line); padding-bottom: 0.15rem; }
+#view-pane h3 { font-size: 1rem; margin: 1rem 0 0.35rem; }
+#view-pane table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+#view-pane th, #view-pane td { border: 1px solid var(--line); padding: 0.35rem 0.5rem; vertical-align: top; }
+#view-pane th { background: #f0f0ea; text-align: left; }
+#view-pane code { background: #f0f0ea; padding: 0.05rem 0.25rem; font-size: 0.9em; }
+#view-pane pre { background: #f0f0ea; padding: 0.6rem; overflow: auto; }
+#view-pane ul { padding-left: 1.2rem; }
+#view-pane input[type="checkbox"] { margin-right: 0.35rem; }
+
+.status { font-size: 0.75rem; color: #9aa; margin: 0.4rem 0 0; white-space: pre-wrap; }
+.status.err { color: #f88; }
+.status.ok { color: #8d8; }
+
+dialog {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1rem;
+  max-width: 28rem;
+  width: calc(100% - 2rem);
+}
+
+dialog::backdrop { background: rgba(0,0,0,0.35); }
+
+#settings-form { display: grid; gap: 0.6rem; }
+#settings-form h2 { margin: 0; font-size: 1.05rem; }
+#settings-form label { display: grid; gap: 0.25rem; font-size: 0.9rem; }
+#settings-form input[type="password"] { padding: 0.4rem; font: inherit; }
+.hint { margin: 0; font-size: 0.8rem; color: var(--muted); }
+.check { display: flex !important; align-items: center; gap: 0.4rem; }
+.dlg-actions { display: flex; justify-content: flex-end; gap: 0.4rem; }
+
+@media (max-width: 720px) {
+  #app { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  #sidebar { max-height: 38vh; }
+}
