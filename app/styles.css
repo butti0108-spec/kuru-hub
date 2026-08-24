@@ -92,7 +92,61 @@ html, body {
 
 #current-title { font-weight: 700; }
 
-.actions { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.install-hint {
+  margin: 0;
+  padding: 0.45rem 0.7rem;
+  font-size: 0.75rem;
+  color: #b8e0a8;
+  background: #2a2a2a;
+  border-bottom: 1px solid #333;
+}
+
+#btn-install {
+  width: 100%;
+  margin-bottom: 0.4rem;
+  background: #399d26;
+  border-color: #399d26;
+  color: #fff;
+  font-weight: 700;
+}
+
+.hint-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.hint-list strong { color: var(--ink); }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 0.4rem 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+  max-width: 100%;
+}
+
+@media (max-width: 720px) {
+  #toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .actions {
+    justify-content: flex-start;
+  }
+  .actions button {
+    flex: 1 1 auto;
+    min-width: 4.5rem;
+  }
+}
 
 button, .actions a {
   font: inherit;

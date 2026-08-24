@@ -2,8 +2,16 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#399d26" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="クルハブ" />
   <title>クルハブ</title>
+  <link rel="manifest" href="app.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="icon" href="icons/icon-192.png" />
   <link rel="stylesheet" href="app/styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
   <script src="app/app.js" defer></script>
@@ -15,9 +23,11 @@
         <strong>クルハブ</strong>
         <button type="button" id="btn-reload" title="再読込">↻</button>
       </div>
+      <p id="install-hint" class="install-hint hidden"></p>
       <nav id="file-list"></nav>
       <div class="side-foot">
-        <button type="button" id="btn-settings">設定（保存用トークン）</button>
+        <button type="button" id="btn-install" class="hidden">ホーム画面に追加</button>
+        <button type="button" id="btn-settings">使い方・設定</button>
         <p id="status" class="status"></p>
       </div>
     </aside>
@@ -27,8 +37,10 @@
         <div class="actions">
           <button type="button" id="btn-view" class="active">表示</button>
           <button type="button" id="btn-edit">編集</button>
-          <button type="button" id="btn-save" disabled>GitHubに保存</button>
-          <a id="link-github" href="#" target="_blank" rel="noopener">GitHub</a>
+          <button type="button" id="btn-local-save">端末に保存</button>
+          <button type="button" id="btn-export">書き出し</button>
+          <button type="button" id="btn-import">取り込み</button>
+          <input type="file" id="import-input" accept=".md,.txt,.csv,text/markdown,text/plain" hidden />
         </div>
       </header>
       <section id="view-pane" class="pane"></section>
@@ -38,17 +50,27 @@
 
   <dialog id="settings-dialog">
     <form method="dialog" id="settings-form">
-      <h2>設定（自分用）</h2>
-      <p class="hint">外から編集してリポに書くときだけ必要。トークンはこの端末のブラウザにだけ保存（サーバには送らない）。</p>
-      <label>GitHub Personal Access Token（repo 権限）
+      <h2>使い方（自分用）</h2>
+      <ol class="hint-list">
+        <li><strong>端末に保存</strong> … このスマホ／PC内に残す（トークン不要）</li>
+        <li><strong>書き出し</strong> … ファイルを保存 → Googleドライブへ上げる</li>
+        <li><strong>取り込み</strong> … Driveから落としたファイルを開く</li>
+        <li>正本は <strong>Driveの更新が新しい方</strong>。スレッドが変わってもファイルを読めば続きできる</li>
+      </ol>
+      <p class="hint"><strong>インストール</strong><br>
+        Android Chrome: メニュー → 「アプリをインストール」／「ホーム画面に追加」<br>
+        iPhone Safari: 共有 → 「ホーム画面に追加」
+      </p>
+      <hr />
+      <p class="hint">任意: GitHubへ直接書くときだけトークン（普段は不要）</p>
+      <label>GitHub Token
         <input type="password" id="token-input" autocomplete="off" />
       </label>
-      <label class="check"><input type="checkbox" id="token-clear" /> 保存済みトークンを消す</label>
+      <label class="check"><input type="checkbox" id="token-clear" /> トークンを消す</label>
       <div class="dlg-actions">
-        <button type="submit" value="cancel">閉じる</button>
-        <button type="submit" value="ok" id="btn-save-settings">保存</button>
+        <button type="button" id="btn-github-save">GitHubに保存（任意）</button>
+        <button type="submit" value="ok">閉じる</button>
       </div>
-      <p class="hint">作り方: GitHub → Settings → Developer settings → Personal access tokens → Fine-grained または classic（repo）</p>
     </form>
   </dialog>
 </body>
