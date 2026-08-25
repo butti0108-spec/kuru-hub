@@ -8,6 +8,7 @@
 - **各ページは別URL**（例）
   - メンター確認: https://butti0108-spec.github.io/kuru-hub/p/mentor-coconala/
   - 出店計画: https://butti0108-spec.github.io/kuru-hub/p/coconala-plan/
+  - スパム対策: https://butti0108-spec.github.io/kuru-hub/p/antispam/
   - 運用ボード: https://butti0108-spec.github.io/kuru-hub/p/board/
 
 スラッグ一覧は `manifest.json` の `slug`。ページ実体は `p/<slug>/index.html`（クルが追加時に生成）。

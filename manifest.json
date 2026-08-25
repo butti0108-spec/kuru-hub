@@ -47,6 +47,13 @@
       "tags": ["確定", "共有", "ココナラ"]
     },
     {
+      "slug": "antispam",
+      "path": "docs/確定/2026-08-25-スパム対策.md",
+      "title": "スパム対策（現状）",
+      "group": "確定",
+      "tags": ["確定", "共有", "サイト"]
+    },
+    {
       "slug": "wip",
       "path": "docs/進行中/README.md",
       "title": "進行中メモ",
