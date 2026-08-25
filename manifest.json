@@ -12,18 +12,39 @@
       "tags": ["日常", "todo"]
     },
     {
-      "slug": "mentor-coconala",
-      "path": "docs/進行中/2026-08-25-メンター確認-ココナラ.md",
-      "title": "★メンター確認（今日）",
-      "group": "進行中",
-      "tags": ["進行中", "共有", "メンター", "ココナラ"]
-    },
-    {
       "slug": "docs-index",
       "path": "docs/README.md",
       "title": "docs目次",
       "group": "日常",
       "tags": ["日常"]
+    },
+    {
+      "slug": "coconala-plan",
+      "path": "docs/確定/2026-08-24-ココナラ1万円キッカフェ半額.md",
+      "title": "ココナラ出店計画",
+      "group": "確定",
+      "tags": ["確定", "共有", "ココナラ"]
+    },
+    {
+      "slug": "mentor-coconala",
+      "path": "docs/確定/2026-08-25-メンター面談-ココナラ.md",
+      "title": "メンター面談結果（ココナラ）",
+      "group": "確定",
+      "tags": ["確定", "共有", "メンター", "ココナラ"]
+    },
+    {
+      "slug": "pricing",
+      "path": "docs/確定/2026-08-25-見積と追加料金の考え方.md",
+      "title": "見積と追加料金",
+      "group": "確定",
+      "tags": ["確定", "共有", "見積"]
+    },
+    {
+      "slug": "portfolio-done",
+      "path": "docs/確定/2026-08-25-ポートフォリオ完成承認とメンタリング期間.md",
+      "title": "完成承認・メンター期間",
+      "group": "確定",
+      "tags": ["確定", "共有", "給付", "メンター"]
     },
     {
       "slug": "hands",
@@ -38,13 +59,6 @@
       "title": "Drive同期",
       "group": "確定",
       "tags": ["確定", "運用"]
-    },
-    {
-      "slug": "coconala-plan",
-      "path": "docs/確定/2026-08-24-ココナラ1万円キッカフェ半額.md",
-      "title": "ココナラ出店計画",
-      "group": "確定",
-      "tags": ["確定", "共有", "ココナラ"]
     },
     {
       "slug": "antispam",
