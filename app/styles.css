@@ -67,6 +67,7 @@ html, body {
   padding: 0.4rem 0.7rem;
   cursor: pointer;
   font: inherit;
+  text-decoration: none;
 }
 
 .file-btn:hover { background: #333; }

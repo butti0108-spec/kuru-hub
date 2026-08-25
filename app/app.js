@@ -6,6 +6,7 @@
   const state = {
     manifest: null,
     path: null,
+    slug: null,
     sha: null,
     text: "",
     dirty: false,
@@ -15,24 +16,32 @@
   };
 
   const $ = (id) => document.getElementById(id);
-  const base = () => {
-    const p = location.pathname.replace(/\/index\.html$/i, "");
-    return p.endsWith("/") ? p.slice(0, -1) : p;
-  };
+
+  /** リポジトリルート（ /p/slug 配下でもルートを指す） */
+  function repoRoot() {
+    let path = location.pathname.replace(/\/index\.html$/i, "");
+    path = path.replace(/\/p\/[^/]+\/?$/, "");
+    if (path.endsWith("/")) path = path.slice(0, -1);
+    return path;
+  }
+
+  function asset(path) {
+    return `${repoRoot()}/${path.replace(/^\//, "")}`;
+  }
+
+  function pageUrl(slug) {
+    return `${repoRoot()}/p/${slug}/`;
+  }
 
   function setStatus(msg, kind) {
     const el = $("status");
+    if (!el) return;
     el.textContent = msg || "";
     el.className = "status" + (kind ? " " + kind : "");
   }
 
   function token() {
     return localStorage.getItem(TOKEN_KEY) || "";
-  }
-
-  function githubBlobUrl(path) {
-    const m = state.manifest;
-    return `https://github.com/${m.owner}/${m.repo}/blob/${m.branch}/${path}`;
   }
 
   function readLocal(path) {
@@ -62,8 +71,40 @@
     localStorage.setItem(LOG_KEY, JSON.stringify(log.slice(0, 200)));
   }
 
+  function fileBySlug(slug) {
+    return (state.manifest.files || []).find((f) => f.slug === slug);
+  }
+
+  function fileByPath(path) {
+    return (state.manifest.files || []).find((f) => f.path === path);
+  }
+
+  function currentSlugFromLocation() {
+    if (window.KURU_SLUG) return window.KURU_SLUG;
+    const q = new URLSearchParams(location.search).get("p");
+    if (q) return q;
+    const m = location.pathname.match(/\/p\/([^/]+)\/?/);
+    return m ? decodeURIComponent(m[1]) : null;
+  }
+
+  function navigateToSlug(slug, { replace } = {}) {
+    const url = pageUrl(slug);
+    if (replace) history.replaceState({ slug }, "", url);
+    else if (location.pathname + location.search !== new URL(url, location.origin).pathname) {
+      // 別ディレクトリへはフル遷移（相対アセットが正しい）
+      const here = location.pathname.replace(/\/index\.html$/i, "").replace(/\/$/, "");
+      const target = new URL(url, location.origin).pathname.replace(/\/$/, "");
+      if (here !== target) {
+        location.href = url;
+        return false;
+      }
+      history.pushState({ slug }, "", url);
+    }
+    return true;
+  }
+
   async function loadManifest() {
-    const res = await fetch(`${base()}/manifest.json?t=${Date.now()}`);
+    const res = await fetch(`${asset("manifest.json")}?t=${Date.now()}`);
     if (!res.ok) throw new Error("manifest.json を読めません");
     state.manifest = await res.json();
     renderList();
@@ -71,6 +112,7 @@
 
   function renderList() {
     const nav = $("file-list");
+    if (!nav) return;
     nav.innerHTML = "";
     const groups = {};
     for (const f of state.manifest.files) {
@@ -82,19 +124,22 @@
       g.textContent = group;
       nav.appendChild(g);
       for (const f of files) {
-        const b = document.createElement("button");
-        b.type = "button";
+        const a = document.createElement("a");
+        a.href = pageUrl(f.slug);
+        a.className = "file-btn" + (f.slug === state.slug ? " active" : "");
         const local = readLocal(f.path);
-        b.className = "file-btn" + (f.path === state.path ? " active" : "");
-        b.textContent = local ? `${f.title} ·端末` : f.title;
-        b.addEventListener("click", () => openFile(f.path));
-        nav.appendChild(b);
+        a.textContent = local ? `${f.title} ·端末` : f.title;
+        a.addEventListener("click", (ev) => {
+          ev.preventDefault();
+          openBySlug(f.slug);
+        });
+        nav.appendChild(a);
       }
     }
   }
 
   async function fetchRaw(path) {
-    const res = await fetch(`${base()}/${path}?t=${Date.now()}`);
+    const res = await fetch(`${asset(path)}?t=${Date.now()}`);
     if (!res.ok) throw new Error(`${path} を読めません (${res.status})`);
     return res.text();
   }
@@ -166,7 +211,9 @@
     const docPath = resolveDocPath(state.path || "", href);
     if (!docPath) return;
     ev.preventDefault();
-    openFile(docPath);
+    const f = fileByPath(docPath);
+    if (f && f.slug) openBySlug(f.slug);
+    else openFile(docPath);
   }
 
   function setMode(mode) {
@@ -181,11 +228,26 @@
     }
   }
 
-  async function openFile(path) {
+  async function openBySlug(slug) {
+    const f = fileBySlug(slug);
+    if (!f) {
+      setStatus(`不明なページ: ${slug}`, "err");
+      return;
+    }
+    const cont = navigateToSlug(slug);
+    if (cont === false) return;
+    window.KURU_SLUG = slug;
+    await openFile(f.path, slug);
+  }
+
+  async function openFile(path, slug) {
     if (state.dirty && !confirm("保存していない編集があります。切り替えますか？")) return;
     setStatus("読込中…");
     try {
+      const f = fileByPath(path) || (slug ? fileBySlug(slug) : null);
       state.path = path;
+      state.slug = f ? f.slug : slug || null;
+
       const local = readLocal(path);
       let remote = "";
       try {
@@ -204,17 +266,17 @@
 
       state.dirty = false;
       $("edit-pane").value = state.text;
-      const item = state.manifest.files.find((f) => f.path === path);
       $("current-title").textContent =
-        (item ? item.title : path) + (state.fromLocal ? "（端末）" : "");
+        (f ? f.title : path) + (state.fromLocal ? "（端末）" : "");
+      document.title = `${f ? f.title : path} | クルハブ`;
       renderList();
       renderView();
       setMode("view");
       await fetchMeta(path);
       setStatus(
         state.fromLocal
-          ? `端末版を表示（更新: ${local.updatedAt || "不明"}）`
-          : "リポ版を表示。編集したら「端末に保存」→必要なら「書き出し」",
+          ? `端末版（${local.updatedAt || "不明"}） ${state.slug ? "URL: /p/" + state.slug + "/" : ""}`
+          : `表示中 ${state.slug ? "→ /p/" + state.slug + "/" : ""}`,
         "ok"
       );
     } catch (e) {
@@ -229,7 +291,7 @@
     state.text = bodyText;
     state.dirty = false;
     state.fromLocal = true;
-    const item = state.manifest.files.find((f) => f.path === state.path);
+    const item = fileByPath(state.path);
     $("current-title").textContent = (item ? item.title : state.path) + "（端末）";
     renderList();
     renderView();
@@ -247,7 +309,7 @@
     a.click();
     URL.revokeObjectURL(a.href);
     appendLog(state.path, new Date().toISOString(), "export");
-    setStatus(`書き出した: ${name} → Driveに上げて正本にできる`, "ok");
+    setStatus(`書き出した: ${name}`, "ok");
   }
 
   function importFile(file) {
@@ -260,7 +322,7 @@
       state.dirty = false;
       writeLocal(state.path, text);
       state.fromLocal = true;
-      const item = state.manifest.files.find((f) => f.path === state.path);
+      const item = fileByPath(state.path);
       $("current-title").textContent = (item ? item.title : state.path) + "（端末）";
       renderList();
       renderView();
@@ -320,9 +382,23 @@
     }
   }
 
+  async function copyPageUrl() {
+    const slug = state.slug || currentSlugFromLocation();
+    const url = slug
+      ? new URL(pageUrl(slug), location.origin).href
+      : location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+      setStatus(`URLをコピーした: ${url}`, "ok");
+    } catch {
+      prompt("このURLをコピーしてください", url);
+    }
+  }
+
   function setupInstall() {
     const btn = $("btn-install");
     const hint = $("install-hint");
+    if (!btn || !hint) return;
     const isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
     const isStandalone =
       window.matchMedia("(display-mode: standalone)").matches ||
@@ -335,7 +411,7 @@
     }
 
     if (isIos) {
-      hint.textContent = "iPhone: 共有ボタン →「ホーム画面に追加」";
+      hint.textContent = "iPhone: 共有 →「ホーム画面に追加」";
       hint.classList.remove("hidden");
     }
 
@@ -358,10 +434,7 @@
 
   function registerSW() {
     if (!("serviceWorker" in navigator)) return;
-    const swUrl = `${base()}/sw.js`;
-    navigator.serviceWorker.register(swUrl).catch((err) => {
-      console.warn("SW register failed", err);
-    });
+    navigator.serviceWorker.register(`${asset("sw.js")}`).catch(() => {});
   }
 
   function wire() {
@@ -378,7 +451,8 @@
     });
     $("btn-reload").addEventListener("click", async () => {
       await loadManifest();
-      if (state.path) await openFile(state.path);
+      const slug = state.slug || currentSlugFromLocation();
+      if (slug) await openBySlug(slug);
     });
     $("edit-pane").addEventListener("input", () => {
       state.dirty = true;
@@ -389,16 +463,21 @@
       $("token-clear").checked = false;
       $("settings-dialog").showModal();
     });
+    const copyBtn = $("btn-copy-url");
+    if (copyBtn) copyBtn.addEventListener("click", copyPageUrl);
     $("btn-github-save").addEventListener("click", (ev) => {
       ev.preventDefault();
       saveToGitHub();
     });
-    $("settings-form").addEventListener("submit", (ev) => {
-      if ($("token-clear").checked) {
-        localStorage.removeItem(TOKEN_KEY);
-      } else if ($("token-input").value.trim()) {
+    $("settings-form").addEventListener("submit", () => {
+      if ($("token-clear").checked) localStorage.removeItem(TOKEN_KEY);
+      else if ($("token-input").value.trim()) {
         localStorage.setItem(TOKEN_KEY, $("token-input").value.trim());
       }
+    });
+    window.addEventListener("popstate", () => {
+      const slug = currentSlugFromLocation();
+      if (slug) openBySlug(slug);
     });
     window.addEventListener("beforeunload", (e) => {
       if (state.dirty) {
@@ -415,8 +494,16 @@
     try {
       await loadManifest();
       document.title = state.manifest.title || "クルハブ";
-      const first = state.manifest.files[0];
-      if (first) await openFile(first.path);
+      const slug = currentSlugFromLocation();
+      if (slug && fileBySlug(slug)) {
+        await openBySlug(slug);
+      } else if (location.pathname.includes("/p/")) {
+        setStatus("このスラッグのページが manifest にありません", "err");
+      } else {
+        // トップは一覧のみ。最初のファイルへ誘導せずボードへ
+        const board = fileBySlug("board") || state.manifest.files[0];
+        if (board) await openBySlug(board.slug);
+      }
     } catch (e) {
       setStatus(String(e.message || e), "err");
     }

@@ -1,5 +1,5 @@
 /* クルハブ Service Worker — インストール／オフライン用 */
-const CACHE = "kuru-hub-v2";
+const CACHE = "kuru-hub-v3";
 const SHELL = [
   "./",
   "./index.html",

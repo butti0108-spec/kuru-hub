@@ -4,7 +4,15 @@
 
 ## URL
 
-https://butti0108-spec.github.io/kuru-hub/
+- トップ: https://butti0108-spec.github.io/kuru-hub/
+- **各ページは別URL**（例）
+  - メンター確認: https://butti0108-spec.github.io/kuru-hub/p/mentor-coconala/
+  - 出店計画: https://butti0108-spec.github.io/kuru-hub/p/coconala-plan/
+  - 運用ボード: https://butti0108-spec.github.io/kuru-hub/p/board/
+
+スラッグ一覧は `manifest.json` の `slug`。ページ実体は `p/<slug>/index.html`（クルが追加時に生成）。
+
+※公開リポでは URL を知られれば他のページも見える。秘密の隔離には使えない。共有のしやすさ用。
 
 ## スマホへの入れ方
 
