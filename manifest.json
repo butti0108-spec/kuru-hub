@@ -68,11 +68,32 @@
       "tags": ["確定", "共有", "サイト"]
     },
     {
+      "slug": "one-man-sample",
+      "path": "docs/確定/2026-08-26-1万円見本とワイヤー依頼書.md",
+      "title": "1万円：見本とワイヤー依頼書",
+      "group": "確定",
+      "tags": ["確定", "共有", "1万円", "見本"]
+    },
+    {
+      "slug": "oku-temae",
+      "path": "docs/確定/2026-08-29-奥手前ドーン型.md",
+      "title": "奥手前ドーン型",
+      "group": "確定",
+      "tags": ["確定", "デザイン", "型"]
+    },
+    {
       "slug": "wip",
       "path": "docs/進行中/README.md",
       "title": "進行中メモ",
       "group": "進行中",
       "tags": ["進行中"]
+    },
+    {
+      "slug": "sample-ui-glasses",
+      "path": "docs/進行中/2026-08-29-見本UI-メガネ式設計.md",
+      "title": "見本UI・メガネ式設計",
+      "group": "進行中",
+      "tags": ["進行中", "見本", "UI"]
     },
     {
       "slug": "inbox",
