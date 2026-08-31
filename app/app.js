@@ -60,6 +60,40 @@
     return updatedAt;
   }
 
+  function hasLocal(path) {
+    return path ? !!readLocal(path) : false;
+  }
+
+  function updateClearLocalButton() {
+    const btn = $("btn-clear-local");
+    if (!btn) return;
+    const show = !!(state.path && hasLocal(state.path));
+    btn.hidden = !show;
+    btn.disabled = !show;
+  }
+
+  async function clearLocalForCurrent() {
+    if (!state.path) return;
+    if (!hasLocal(state.path)) {
+      setStatus("このページに端末データはありません", "ok");
+      updateClearLocalButton();
+      return;
+    }
+    const item = fileByPath(state.path);
+    const name = item ? item.title : state.path;
+    if (
+      !confirm(
+        `「${name}」の端末データを消して、Web上の最新版を表示します。\n\n端末での編集・取り込み内容は戻せません。よろしいですか？`
+      )
+    ) {
+      return;
+    }
+    localStorage.removeItem(LOCAL_PREFIX + state.path);
+    state.dirty = false;
+    await openFile(state.path, state.slug);
+    setStatus("Web版を表示しています", "ok");
+  }
+
   function appendLog(path, updatedAt, via) {
     let log = [];
     try {
@@ -279,6 +313,7 @@
           : `表示中 ${state.slug ? "→ /p/" + state.slug + "/" : ""}`,
         "ok"
       );
+      updateClearLocalButton();
     } catch (e) {
       setStatus(String(e.message || e), "err");
     }
@@ -296,6 +331,7 @@
     renderList();
     renderView();
     setStatus(`端末に保存した ${at}`, "ok");
+    updateClearLocalButton();
   }
 
   function exportFile() {
@@ -328,6 +364,7 @@
       renderView();
       setMode("view");
       setStatus(`取り込んだ: ${file.name}`, "ok");
+      updateClearLocalButton();
     };
     reader.readAsText(file, "UTF-8");
   }
@@ -444,6 +481,8 @@
     $("btn-local-save").addEventListener("click", saveToDevice);
     $("btn-export").addEventListener("click", exportFile);
     $("btn-import").addEventListener("click", () => $("import-input").click());
+    const clearLocalBtn = $("btn-clear-local");
+    if (clearLocalBtn) clearLocalBtn.addEventListener("click", clearLocalForCurrent);
     $("import-input").addEventListener("change", (e) => {
       const file = e.target.files && e.target.files[0];
       if (file) importFile(file);

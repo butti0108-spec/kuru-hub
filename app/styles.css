@@ -161,6 +161,11 @@ button, .actions a {
 }
 
 button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+button.btn-clear-local:not(:disabled):not([hidden]) {
+  border-color: #b45309;
+  color: #92400e;
+  background: #fffbeb;
+}
 button:disabled { opacity: 0.45; cursor: not-allowed; }
 
 #btn-reload, #btn-settings {
