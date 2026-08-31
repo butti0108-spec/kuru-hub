@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#399d26" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="クルハブ" />
+  <title>奥手前ドーン型 | クルハブ</title>
+  <link rel="manifest" href="../../app.webmanifest" />
+  <link rel="apple-touch-icon" href="../../icons/icon-192.png" />
+  <link rel="icon" href="../../icons/icon-192.png" />
+  <link rel="stylesheet" href="../../app/styles.css" />
+  <script>window.KURU_SLUG = "oku-don";</script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="../../app/app.js" defer></script>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="side-head">
+        <strong><a href="../../" style="color:inherit;text-decoration:none">クルハブ</a></strong>
+        <button type="button" id="btn-reload" title="再読込">↻</button>
+      </div>
+      <p id="install-hint" class="install-hint hidden"></p>
+      <nav id="file-list"></nav>
+      <div class="side-foot">
+        <button type="button" id="btn-install" class="hidden">ホーム画面に追加</button>
+        <button type="button" id="btn-copy-url">このページのURL</button>
+        <button type="button" id="btn-settings">使い方・設定</button>
+        <p id="status" class="status"></p>
+      </div>
+    </aside>
+    <main id="main">
+      <header id="toolbar">
+        <div id="current-title">—</div>
+        <div class="actions">
+          <button type="button" id="btn-view" class="active">表示</button>
+          <button type="button" id="btn-edit">編集</button>
+          <button type="button" id="btn-local-save">端末に保存</button>
+          <button type="button" id="btn-export">書き出し</button>
+          <button type="button" id="btn-import">取り込み</button>
+          <input type="file" id="import-input" accept=".md,.txt,.csv,text/markdown,text/plain" hidden />
+        </div>
+      </header>
+      <section id="view-pane" class="pane"></section>
+      <textarea id="edit-pane" class="pane hidden" spellcheck="false"></textarea>
+    </main>
+  </div>
+  <dialog id="settings-dialog">
+    <form method="dialog" id="settings-form">
+      <h2>使い方（自分用）</h2>
+      <ol class="hint-list">
+        <li><strong>端末に保存</strong> … このデバイス内に残す</li>
+        <li><strong>書き出し</strong> … ファイル → Driveへ</li>
+        <li><strong>取り込み</strong> … Driveから開く</li>
+        <li>各文書は <strong>/p/スラッグ/</strong> の別URL。共有しやすい</li>
+      </ol>
+      <p class="hint">Android: メニュー→ホーム画面に追加 / iPhone Safari: 共有→ホーム画面に追加</p>
+      <hr />
+      <p class="hint">任意: GitHub Token</p>
+      <label>GitHub Token<input type="password" id="token-input" autocomplete="off" /></label>
+      <label class="check"><input type="checkbox" id="token-clear" /> トークンを消す</label>
+      <div class="dlg-actions">
+        <button type="button" id="btn-github-save">GitHubに保存（任意）</button>
+        <button type="submit" value="ok">閉じる</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
+
