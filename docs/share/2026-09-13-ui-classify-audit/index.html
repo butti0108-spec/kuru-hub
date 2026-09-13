@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UI分類・監査共有パック（2026-09-13）</title>
+  <style>
+    :root {
+      --ink: #1a1f1c;
+      --muted: #555;
+      --line: rgba(0, 0, 0, 0.12);
+      --bg: #f4f2ee;
+      --card: #fff;
+      --primary: #3d6ea8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    main {
+      max-width: 36rem;
+      margin: 0 auto;
+      padding: 2rem 1.1rem 3rem;
+    }
+    h1 { margin: 0 0 0.4rem; font-size: 1.35rem; }
+    .lead { margin: 0 0 1.25rem; color: var(--muted); font-size: 0.95rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 0.65rem;
+      padding: 1rem 1.05rem;
+      margin: 0 0 0.85rem;
+    }
+    .card h2 { margin: 0 0 0.35rem; font-size: 1.05rem; }
+    .card p { margin: 0 0 0.75rem; font-size: 0.88rem; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.6rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 0.5rem;
+      border: 1px solid rgba(0, 0, 0, 0.14);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: #fff;
+    }
+    a.btn-primary {
+      background: var(--primary);
+      border-color: #355f92;
+      color: #fff;
+    }
+    a.btn:hover { filter: brightness(0.97); }
+    .note { margin-top: 1.25rem; font-size: 0.82rem; color: var(--muted); }
+    code { font-size: 0.85em; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>UI分類・監査共有パック</h1>
+    <p class="lead">2026-09-13／監査官共有用。辞書正本＋候補対応表＋全画面棚卸し（クラス・CSS未変更）。状態は確定／仮／所属保留／名称保留／対象外。</p>
+
+    <div class="card">
+      <h2>まとめてダウンロード</h2>
+      <p>3点セットの ZIP（推奨）</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="ui-classify-audit-pack.zip" download="ui-classify-audit-pack.zip">ZIPをダウンロード</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>① UI分類辞書 Ver0.1（正本）</h2>
+      <p>意味・役割のみ。px・色なし</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="00-dictionary-v01.md" download="00-UI分類辞書-Ver0.1.md">Markdownをダウンロード</a>
+        <a class="btn" href="00-dictionary-v01.md" target="_blank" rel="noopener">ブラウザで開く</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>② 候補対応表</h2>
+      <p>現クラス ↔ 辞書候補／状態（所属保留・名称保留を分離）</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="01-candidate-map.md" download="01-UI分類-候補対応表.md">Markdownをダウンロード</a>
+        <a class="btn" href="01-candidate-map.md" target="_blank" rel="noopener">ブラウザで開く</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>③ 全画面棚卸し</h2>
+      <p>画面ごとの付箋タグ／監査へ返す論点</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="02-screen-inventory.md" download="02-UI分類-全画面棚卸し.md">Markdownをダウンロード</a>
+        <a class="btn" href="02-screen-inventory.md" target="_blank" rel="noopener">ブラウザで開く</a>
+      </div>
+    </div>
+
+    <p class="note">
+      正本の置き場:<br>
+      <code>docs/進行中/2026-09-13-UI分類辞書-Ver0.1.md</code><br>
+      <code>docs/進行中/2026-09-13-UI分類-候補対応表.md</code><br>
+      <code>docs/進行中/2026-09-13-UI分類-全画面棚卸し.md</code><br>
+      このページ: <code>docs/share/2026-09-13-ui-classify-audit/</code>
+    </p>
+  </main>
+</body>
+</html>
