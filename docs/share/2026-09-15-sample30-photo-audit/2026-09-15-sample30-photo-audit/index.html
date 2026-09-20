@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>見本30・写真監査共有パック（2026-09-15）</title>
+  <style>
+    :root {
+      --ink: #1a1f1c;
+      --muted: #555;
+      --line: rgba(0, 0, 0, 0.12);
+      --bg: #f4f2ee;
+      --card: #fff;
+      --primary: #3d6ea8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    main { max-width: 52rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+    h1 { margin: 0 0 0.35rem; font-size: 1.35rem; }
+    .lead { margin: 0 0 1rem; color: var(--muted); font-size: 0.95rem; }
+    .toolbar {
+      display: flex; flex-wrap: wrap; gap: 0.45rem;
+      margin: 0 0 1.25rem;
+    }
+    a.btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 2.4rem; padding: 0.4rem 0.85rem;
+      border-radius: 0.5rem; border: 1px solid rgba(0,0,0,0.14);
+      text-decoration: none; font-weight: 700; font-size: 0.9rem;
+      color: var(--ink); background: #fff;
+    }
+    a.btn-primary { background: var(--primary); border-color: #355f92; color: #fff; }
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(4.2rem, 1fr));
+      gap: 0.35rem;
+      margin: 0 0 1.5rem;
+    }
+    .nav a {
+      display: grid; place-items: center;
+      min-height: 2.2rem; border-radius: 0.4rem;
+      background: #fff; border: 1px solid var(--line);
+      text-decoration: none; color: var(--ink); font-weight: 700; font-size: 0.85rem;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 0.65rem;
+      padding: 0.85rem 0.9rem 1rem;
+      margin: 0 0 1rem;
+    }
+    .card h2 { margin: 0 0 0.2rem; font-size: 1.05rem; }
+    .meta { margin: 0 0 0.65rem; color: var(--muted); font-size: 0.86rem; }
+    .card img {
+      display: block; width: 100%; height: auto;
+      border: 1px solid var(--line); border-radius: 0.4rem; background: #ddd;
+    }
+    .note { margin-top: 1.5rem; font-size: 0.82rem; color: var(--muted); }
+    code { font-size: 0.85em; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>見本30・写真／文章／雰囲気 監査パック</h1>
+    <p class="lead">2026-09-15／共有用スクショ（レイアウト精度は不問）。文章・図柄・雰囲気をまとめて見て、号ごとに直し指示をください。</p>
+
+    <div class="toolbar">
+      <a class="btn btn-primary" href="00-brief.md" target="_blank" rel="noopener">依頼文・回答フォーマット</a>
+      <a class="btn" href="01-response-template.md" target="_blank" rel="noopener">回答テンプレ（空欄）</a>
+      <a class="btn" href="samples-meta.json" target="_blank" rel="noopener">samples-meta.json</a>
+    </div>
+
+    <div class="nav" id="nav"></div>
+    <div id="list"></div>
+
+    <p class="note">
+      置き場: <code>docs/share/2026-09-15-sample30-photo-audit/</code><br>
+      スクショ: レビューダッシュ撮影モード相当の全体PNG（2026-09-15 再撮影）<br>
+      PNGは大きいので、共有時はフォルダごとZIP推奨。
+    </p>
+  </main>
+  <script>
+    fetch("samples-meta.json")
+      .then(function (r) { return r.json(); })
+      .then(function (samples) {
+        var nav = document.getElementById("nav");
+        var list = document.getElementById("list");
+        samples.forEach(function (s) {
+          var a = document.createElement("a");
+          a.href = "#" + s.folder;
+          a.textContent = s.id;
+          nav.appendChild(a);
+
+          var card = document.createElement("article");
+          card.className = "card";
+          card.id = s.folder;
+          card.innerHTML =
+            "<h2>No." + s.id + " " + s.brand + "</h2>" +
+            "<p class=\"meta\">" + s.folder + "／" + s.scene + "／" + s.blurb + "<br>キャッチ: " + s.hero + "</p>" +
+            "<a href=\"shots/" + s.folder + ".png\" target=\"_blank\" rel=\"noopener\">" +
+            "<img src=\"shots/" + s.folder + ".png\" alt=\"No." + s.id + " " + s.brand + "\" loading=\"lazy\">" +
+            "</a>";
+          list.appendChild(card);
+        });
+      })
+      .catch(function (err) {
+        document.getElementById("list").textContent = "samples-meta.json を読めません: " + err;
+      });
+  </script>
+</body>
+</html>

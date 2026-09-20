@@ -1,0 +1,182 @@
+[
+  {
+    "folder": "01-cafe-warm-a",
+    "ok": true,
+    "bytes": 1683926,
+    "file": "01-01-cafe-warm-a.png"
+  },
+  {
+    "folder": "02-cafe-split-b",
+    "ok": true,
+    "bytes": 1767479,
+    "file": "02-02-cafe-split-b.png"
+  },
+  {
+    "folder": "03-cafe-mix-ink-c",
+    "ok": true,
+    "bytes": 1311345,
+    "file": "03-03-cafe-mix-ink-c.png"
+  },
+  {
+    "folder": "04-salon-clinic-a",
+    "ok": true,
+    "bytes": 868311,
+    "file": "04-04-salon-clinic-a.png"
+  },
+  {
+    "folder": "05-salon-sakura-b",
+    "ok": true,
+    "bytes": 2226703,
+    "file": "05-05-salon-sakura-b.png"
+  },
+  {
+    "folder": "06-bakery-brick-a",
+    "ok": true,
+    "bytes": 1171133,
+    "file": "06-06-bakery-brick-a.png"
+  },
+  {
+    "folder": "07-bakery-cafe-c",
+    "ok": true,
+    "bytes": 68849,
+    "file": "07-07-bakery-cafe-c.png"
+  },
+  {
+    "folder": "08-bar-ink-b",
+    "ok": true,
+    "bytes": 832870,
+    "file": "08-08-bar-ink-b.png"
+  },
+  {
+    "folder": "09-bar-brick-a",
+    "ok": true,
+    "bytes": 151416,
+    "file": "09-09-bar-brick-a.png"
+  },
+  {
+    "folder": "10-clinic-green-a",
+    "ok": true,
+    "bytes": 755661,
+    "file": "10-10-clinic-green-a.png"
+  },
+  {
+    "folder": "11-clinic-clinic-b",
+    "ok": true,
+    "bytes": 110204,
+    "file": "11-11-clinic-clinic-b.png"
+  },
+  {
+    "folder": "12-florist-sakura-a",
+    "ok": true,
+    "bytes": 1739280,
+    "file": "12-12-florist-sakura-a.png"
+  },
+  {
+    "folder": "13-florist-green-c",
+    "ok": true,
+    "bytes": 1247021,
+    "file": "13-13-florist-green-c.png"
+  },
+  {
+    "folder": "14-ramen-brick-b",
+    "ok": true,
+    "bytes": 740633,
+    "file": "14-14-ramen-brick-b.png"
+  },
+  {
+    "folder": "15-ramen-ink-a",
+    "ok": true,
+    "bytes": 711989,
+    "file": "15-15-ramen-ink-a.png"
+  },
+  {
+    "folder": "16-yoga-green-a",
+    "ok": true,
+    "bytes": 932202,
+    "file": "16-16-yoga-green-a.png"
+  },
+  {
+    "folder": "17-yoga-sakura-b",
+    "ok": true,
+    "bytes": 1573425,
+    "file": "17-17-yoga-sakura-b.png"
+  },
+  {
+    "folder": "18-studio-clinic-c",
+    "ok": true,
+    "bytes": 815119,
+    "file": "18-18-studio-clinic-c.png"
+  },
+  {
+    "folder": "19-studio-ink-a",
+    "ok": true,
+    "bytes": 1155569,
+    "file": "19-19-studio-ink-a.png"
+  },
+  {
+    "folder": "20-pet-cafe-b",
+    "ok": true,
+    "bytes": 2119550,
+    "file": "20-20-pet-cafe-b.png"
+  },
+  {
+    "folder": "21-pet-sakura-a",
+    "ok": true,
+    "bytes": 1067001,
+    "file": "21-21-pet-sakura-a.png"
+  },
+  {
+    "folder": "22-cowork-clinic-b",
+    "ok": true,
+    "bytes": 1129504,
+    "file": "22-22-cowork-clinic-b.png"
+  },
+  {
+    "folder": "23-cowork-green-a",
+    "ok": true,
+    "bytes": 1054856,
+    "file": "23-23-cowork-green-a.png"
+  },
+  {
+    "folder": "24-sweets-sakura-c",
+    "ok": true,
+    "bytes": 1679444,
+    "file": "24-24-sweets-sakura-c.png"
+  },
+  {
+    "folder": "25-sweets-cafe-a",
+    "ok": true,
+    "bytes": 1120543,
+    "file": "25-25-sweets-cafe-a.png"
+  },
+  {
+    "folder": "26-izakaya-brick-c",
+    "ok": true,
+    "bytes": 81999,
+    "file": "26-26-izakaya-brick-c.png"
+  },
+  {
+    "folder": "27-izakaya-ink-b",
+    "ok": true,
+    "bytes": 2107702,
+    "file": "27-27-izakaya-ink-b.png"
+  },
+  {
+    "folder": "28-gallery-ink-a",
+    "ok": true,
+    "bytes": 46780,
+    "file": "28-28-gallery-ink-a.png"
+  },
+  {
+    "folder": "29-gallery-clinic-c",
+    "ok": true,
+    "bytes": 634645,
+    "file": "29-29-gallery-clinic-c.png"
+  },
+  {
+    "folder": "30-hotel-cafe-b",
+    "ok": true,
+    "bytes": 662689,
+    "file": "30-30-hotel-cafe-b.png"
+  }
+]
