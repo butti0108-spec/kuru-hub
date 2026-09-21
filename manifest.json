@@ -1,253 +1,391 @@
 {
-  "title": "クルハブ",
-  "owner": "butti0108-spec",
-  "repo": "kuru-hub",
-  "branch": "main",
-  "files": [
-    {
-      "slug": "board",
-      "path": "docs/運用ボード.md",
-      "title": "運用ボード",
-      "group": "いま",
-      "tags": ["いま", "todo"]
-    },
-    {
-      "slug": "docs-index",
-      "path": "docs/README.md",
-      "title": "docs目次",
-      "group": "いま",
-      "tags": ["いま"]
-    },
-    {
-      "slug": "sol-journal",
-      "path": "docs/進行中/2026-09-20-ソル研修日誌.md",
-      "title": "ソル研修日誌",
-      "group": "いま",
-      "tags": ["いま", "研修"]
-    },
-    {
-      "slug": "maker-flow",
-      "path": "docs/確定/2026-09-07-かんたんホームページメーカー導線.md",
-      "title": "かんたんHPメーカー導線",
-      "group": "地図",
-      "tags": ["地図", "必読", "1万円"]
-    },
-    {
-      "slug": "easy-careful",
-      "path": "docs/確定/2026-09-06-簡単とこだわりの原則.md",
-      "title": "簡単とこだわりの原則",
-      "group": "地図",
-      "tags": ["地図", "必読", "1万円"]
-    },
-    {
-      "slug": "photo-worldview",
-      "path": "docs/確定/2026-09-18-見本写真-世界観判断基準.md",
-      "title": "見本写真・世界観判断",
-      "group": "地図",
-      "tags": ["地図", "必読", "写真"]
-    },
-    {
-      "slug": "hands",
-      "path": "docs/確定/2026-08-25-手足方式.md",
-      "title": "手足方式",
-      "group": "地図",
-      "tags": ["地図", "必読", "運用"]
-    },
-    {
-      "slug": "drive-sync",
-      "path": "docs/確定/2026-08-25-Drive同期.md",
-      "title": "Drive同期",
-      "group": "地図",
-      "tags": ["地図", "必読", "運用"]
-    },
-    {
-      "slug": "ui-classify-v1",
-      "path": "docs/確定/2026-09-13-UI分類辞書-Ver1.0-意味設計.md",
-      "title": "UI分類辞書 Ver1.0（意味）",
-      "group": "地図",
-      "tags": ["地図", "UI", "意味"]
-    },
-    {
-      "slug": "ui-color",
-      "path": "docs/確定/2026-09-13-UI色状態標準.md",
-      "title": "UI色状態標準",
-      "group": "地図",
-      "tags": ["地図", "UI"]
-    },
-    {
-      "slug": "ui-role",
-      "path": "docs/確定/2026-09-13-UI役割監査.md",
-      "title": "UI役割監査",
-      "group": "地図",
-      "tags": ["地図", "UI"]
-    },
-    {
-      "slug": "sample-aims",
-      "path": "docs/確定/2026-09-07-サンプル見本狙い表30.md",
-      "title": "サンプル見本狙い表30",
-      "group": "地図",
-      "tags": ["地図", "見本"]
-    },
-    {
-      "slug": "wip",
-      "path": "docs/進行中/README.md",
-      "title": "進行中メモ（目次）",
-      "group": "進行中",
-      "tags": ["進行中"]
-    },
-    {
-      "slug": "keycafe-app",
-      "path": "docs/進行中/2026-08-28-キッカフェ店舗アプリ打ち合わせ.md",
-      "title": "キッカフェ打ち合わせ",
-      "group": "進行中",
-      "tags": ["進行中", "案件"]
-    },
-    {
-      "slug": "hero-bu",
-      "path": "docs/進行中/2026-09-13-見本30-ヒーローブラッシュアップ振分.md",
-      "title": "見本30・ヒーローBU",
-      "group": "進行中",
-      "tags": ["進行中", "見本", "人目視"]
-    },
-    {
-      "slug": "lead-bu",
-      "path": "docs/進行中/2026-09-14-見本30-主役構成ブラッシュアップ.md",
-      "title": "見本30・主役構成BU",
-      "group": "進行中",
-      "tags": ["進行中", "見本", "人目視"]
-    },
-    {
-      "slug": "meaning-bu",
-      "path": "docs/進行中/2026-09-15-見本30-意味引き算ブラッシュアップ.md",
-      "title": "見本30・意味引き算BU",
-      "group": "進行中",
-      "tags": ["進行中", "見本", "人目視"]
-    },
-    {
-      "slug": "edit-hub-mirror",
-      "path": "docs/進行中/2026-09-09-編集ハブプレビュー鏡ワイヤー.md",
-      "title": "編集ハブ・プレビュー鏡",
-      "group": "進行中",
-      "tags": ["進行中", "編集ハブ"]
-    },
-    {
-      "slug": "edit-hub-gap",
-      "path": "docs/進行中/2026-09-09-編集ハブ配置隙間UI.md",
-      "title": "編集ハブ・配置隙間",
-      "group": "進行中",
-      "tags": ["進行中", "編集ハブ"]
-    },
-    {
-      "slug": "sample24-photo",
-      "path": "docs/進行中/2026-09-17-見本24-残写真世界観差し替え.md",
-      "title": "見本24・残写真世界観",
-      "group": "進行中",
-      "tags": ["進行中", "見本", "写真"]
-    },
-    {
-      "slug": "sushi-ui",
-      "path": "docs/進行中/2026-09-19-回転寿司UIまとめ修正.md",
-      "title": "回転寿司UIまとめ修正",
-      "group": "進行中",
-      "tags": ["進行中", "寿司"]
-    },
-    {
-      "slug": "ui-classify-v11",
-      "path": "docs/進行中/2026-09-13-UI分類辞書-Ver1.1-視覚設計.md",
-      "title": "UI分類 Ver1.1（視覚・草案）",
-      "group": "進行中",
-      "tags": ["進行中", "UI"]
-    },
-    {
-      "slug": "coconala-plan",
-      "path": "docs/確定/2026-08-24-ココナラ1万円キッカフェ半額.md",
-      "title": "ココナラ出店計画",
-      "group": "確定",
-      "tags": ["確定", "ココナラ"]
-    },
-    {
-      "slug": "sample-1man",
-      "path": "docs/確定/2026-08-26-1万円見本とワイヤー依頼書.md",
-      "title": "1万円：見本と注文画面",
-      "group": "確定",
-      "tags": ["確定", "ココナラ", "見本"]
-    },
-    {
-      "slug": "mentor-coconala",
-      "path": "docs/確定/2026-08-25-メンター面談-ココナラ.md",
-      "title": "メンター面談結果（ココナラ）",
-      "group": "確定",
-      "tags": ["確定", "メンター"]
-    },
-    {
-      "slug": "pricing",
-      "path": "docs/確定/2026-08-25-見積と追加料金の考え方.md",
-      "title": "見積と追加料金",
-      "group": "確定",
-      "tags": ["確定", "見積"]
-    },
-    {
-      "slug": "portfolio-done",
-      "path": "docs/確定/2026-08-25-ポートフォリオ完成承認とメンタリング期間.md",
-      "title": "完成承認・メンター期間",
-      "group": "確定",
-      "tags": ["確定", "給付", "メンター"]
-    },
-    {
-      "slug": "antispam",
-      "path": "docs/確定/2026-08-25-スパム対策.md",
-      "title": "スパム対策（現状）",
-      "group": "確定",
-      "tags": ["確定", "サイト"]
-    },
-    {
-      "slug": "sample24-copy",
-      "path": "docs/確定/2026-09-18-見本24-掲載文言-監査承認.md",
-      "title": "見本24・掲載文言承認",
-      "group": "確定",
-      "tags": ["確定", "見本", "文言"]
-    },
-    {
-      "slug": "mentor-0831",
-      "path": "docs/進行中/2026-08-31-メンター面談メモ.md",
-      "title": "8/31 メンター面談",
-      "group": "書庫",
-      "tags": ["書庫", "メンター"]
-    },
-    {
-      "slug": "sample-ui",
-      "path": "docs/進行中/2026-08-29-見本UI-メガネ式設計.md",
-      "title": "見本UI・メガネ式",
-      "group": "書庫",
-      "tags": ["書庫", "見本"]
-    },
-    {
-      "slug": "oku-don",
-      "path": "docs/確定/2026-08-29-奥手前ドーン型.md",
-      "title": "奥手前ドーン型",
-      "group": "書庫",
-      "tags": ["書庫", "デザイン"]
-    },
-    {
-      "slug": "order-ui-old",
-      "path": "docs/進行中/2026-09-05-注文画面表示設計.md",
-      "title": "注文画面表示設計（旧入口注記）",
-      "group": "書庫",
-      "tags": ["書庫", "旧導線"]
-    },
-    {
-      "slug": "ui-classify-v01",
-      "path": "docs/進行中/2026-09-13-UI分類辞書-Ver0.1.md",
-      "title": "UI分類辞書 Ver0.1",
-      "group": "書庫",
-      "tags": ["書庫", "UI"]
-    },
-    {
-      "slug": "ui-classify-v02",
-      "path": "docs/進行中/2026-09-13-UI分類辞書-Ver0.2-Hierarchy意味設計.md",
-      "title": "UI分類辞書 Ver0.2 Hierarchy",
-      "group": "書庫",
-      "tags": ["書庫", "UI"]
-    }
-  ]
+    "title":  "クルハブ",
+    "owner":  "butti0108-spec",
+    "repo":  "kuru-hub",
+    "branch":  "main",
+    "files":  [
+                  {
+                      "slug":  "board",
+                      "path":  "docs/運用ボード.md",
+                      "title":  "運用ボード",
+                      "group":  "いま",
+                      "tags":  [
+                                   "いま",
+                                   "todo"
+                               ]
+                  },
+                  {
+                      "slug":  "docs-index",
+                      "path":  "docs/README.md",
+                      "title":  "docs目次",
+                      "group":  "いま",
+                      "tags":  [
+                                   "いま"
+                               ]
+                  },
+                  {
+                      "slug":  "sol-journal",
+                      "path":  "docs/進行中/2026-09-20-ソル研修日誌.md",
+                      "title":  "ソル研修日誌",
+                      "group":  "いま",
+                      "tags":  [
+                                   "いま",
+                                   "研修"
+                               ]
+                  },
+                  {
+                      "slug":  "maker-flow",
+                      "path":  "docs/確定/2026-09-07-かんたんホームページメーカー導線.md",
+                      "title":  "かんたんHPメーカー導線",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "必読",
+                                   "1万円"
+                               ]
+                  },
+                  {
+                      "slug":  "easy-careful",
+                      "path":  "docs/確定/2026-09-06-簡単とこだわりの原則.md",
+                      "title":  "簡単とこだわりの原則",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "必読",
+                                   "1万円"
+                               ]
+                  },
+                  {
+                      "slug":  "photo-worldview",
+                      "path":  "docs/確定/2026-09-18-見本写真-世界観判断基準.md",
+                      "title":  "見本写真・世界観判断",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "必読",
+                                   "写真"
+                               ]
+                  },
+                  {
+                      "slug":  "tip-mark",
+                      "path":  "docs/確定/2026-09-21-見出し右ヒントマーク.md",
+                      "title":  "見出し右ヒントマーク（？）",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "UI",
+                                   "？"
+                               ]
+                  },
+                  {
+                      "slug":  "customer-copy",
+                      "path":  "docs/確定/2026-09-21-お客様向け文言基準.md",
+                      "title":  "お客様向け文言基準",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "必読",
+                                   "文言"
+                               ]
+                  },
+                  {
+                      "slug":  "hands",
+                      "path":  "docs/確定/2026-08-25-手足方式.md",
+                      "title":  "手足方式",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "必読",
+                                   "運用"
+                               ]
+                  },
+                  {
+                      "slug":  "drive-sync",
+                      "path":  "docs/確定/2026-08-25-Drive同期.md",
+                      "title":  "Drive同期",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "必読",
+                                   "運用"
+                               ]
+                  },
+                  {
+                      "slug":  "ui-classify-v1",
+                      "path":  "docs/確定/2026-09-13-UI分類辞書-Ver1.0-意味設計.md",
+                      "title":  "UI分類辞書 Ver1.0（意味）",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "UI",
+                                   "意味"
+                               ]
+                  },
+                  {
+                      "slug":  "ui-color",
+                      "path":  "docs/確定/2026-09-13-UI色状態標準.md",
+                      "title":  "UI色状態標準",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "UI"
+                               ]
+                  },
+                  {
+                      "slug":  "ui-role",
+                      "path":  "docs/確定/2026-09-13-UI役割監査.md",
+                      "title":  "UI役割監査",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "UI"
+                               ]
+                  },
+                  {
+                      "slug":  "sample-aims",
+                      "path":  "docs/確定/2026-09-07-サンプル見本狙い表30.md",
+                      "title":  "サンプル見本狙い表30",
+                      "group":  "地図",
+                      "tags":  [
+                                   "地図",
+                                   "見本"
+                               ]
+                  },
+                  {
+                      "slug":  "wip",
+                      "path":  "docs/進行中/README.md",
+                      "title":  "進行中メモ（目次）",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中"
+                               ]
+                  },
+                  {
+                      "slug":  "keycafe-app",
+                      "path":  "docs/進行中/2026-08-28-キッカフェ店舗アプリ打ち合わせ.md",
+                      "title":  "キッカフェ打ち合わせ",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "案件"
+                               ]
+                  },
+                  {
+                      "slug":  "hero-bu",
+                      "path":  "docs/進行中/2026-09-13-見本30-ヒーローブラッシュアップ振分.md",
+                      "title":  "見本30・ヒーローBU",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "見本",
+                                   "人目視"
+                               ]
+                  },
+                  {
+                      "slug":  "lead-bu",
+                      "path":  "docs/進行中/2026-09-14-見本30-主役構成ブラッシュアップ.md",
+                      "title":  "見本30・主役構成BU",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "見本",
+                                   "人目視"
+                               ]
+                  },
+                  {
+                      "slug":  "meaning-bu",
+                      "path":  "docs/進行中/2026-09-15-見本30-意味引き算ブラッシュアップ.md",
+                      "title":  "見本30・意味引き算BU",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "見本",
+                                   "人目視"
+                               ]
+                  },
+                  {
+                      "slug":  "edit-hub-mirror",
+                      "path":  "docs/進行中/2026-09-09-編集ハブプレビュー鏡ワイヤー.md",
+                      "title":  "編集ハブ・プレビュー鏡",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "編集ハブ"
+                               ]
+                  },
+                  {
+                      "slug":  "edit-hub-gap",
+                      "path":  "docs/進行中/2026-09-09-編集ハブ配置隙間UI.md",
+                      "title":  "編集ハブ・配置隙間",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "編集ハブ"
+                               ]
+                  },
+                  {
+                      "slug":  "sample24-photo",
+                      "path":  "docs/進行中/2026-09-17-見本24-残写真世界観差し替え.md",
+                      "title":  "見本24・残写真世界観",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "見本",
+                                   "写真"
+                               ]
+                  },
+                  {
+                      "slug":  "sushi-ui",
+                      "path":  "docs/進行中/2026-09-19-回転寿司UIまとめ修正.md",
+                      "title":  "回転寿司UIまとめ修正",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "寿司"
+                               ]
+                  },
+                  {
+                      "slug":  "ui-classify-v11",
+                      "path":  "docs/進行中/2026-09-13-UI分類辞書-Ver1.1-視覚設計.md",
+                      "title":  "UI分類 Ver1.1（視覚・草案）",
+                      "group":  "進行中",
+                      "tags":  [
+                                   "進行中",
+                                   "UI"
+                               ]
+                  },
+                  {
+                      "slug":  "coconala-plan",
+                      "path":  "docs/確定/2026-08-24-ココナラ1万円キッカフェ半額.md",
+                      "title":  "ココナラ出店計画",
+                      "group":  "確定",
+                      "tags":  [
+                                   "確定",
+                                   "ココナラ"
+                               ]
+                  },
+                  {
+                      "slug":  "sample-1man",
+                      "path":  "docs/確定/2026-08-26-1万円見本とワイヤー依頼書.md",
+                      "title":  "1万円：見本と注文画面",
+                      "group":  "確定",
+                      "tags":  [
+                                   "確定",
+                                   "ココナラ",
+                                   "見本"
+                               ]
+                  },
+                  {
+                      "slug":  "mentor-coconala",
+                      "path":  "docs/確定/2026-08-25-メンター面談-ココナラ.md",
+                      "title":  "メンター面談結果（ココナラ）",
+                      "group":  "確定",
+                      "tags":  [
+                                   "確定",
+                                   "メンター"
+                               ]
+                  },
+                  {
+                      "slug":  "pricing",
+                      "path":  "docs/確定/2026-08-25-見積と追加料金の考え方.md",
+                      "title":  "見積と追加料金",
+                      "group":  "確定",
+                      "tags":  [
+                                   "確定",
+                                   "見積"
+                               ]
+                  },
+                  {
+                      "slug":  "portfolio-done",
+                      "path":  "docs/確定/2026-08-25-ポートフォリオ完成承認とメンタリング期間.md",
+                      "title":  "完成承認・メンター期間",
+                      "group":  "確定",
+                      "tags":  [
+                                   "確定",
+                                   "給付",
+                                   "メンター"
+                               ]
+                  },
+                  {
+                      "slug":  "antispam",
+                      "path":  "docs/確定/2026-08-25-スパム対策.md",
+                      "title":  "スパム対策（現状）",
+                      "group":  "確定",
+                      "tags":  [
+                                   "確定",
+                                   "サイト"
+                               ]
+                  },
+                  {
+                      "slug":  "sample24-copy",
+                      "path":  "docs/確定/2026-09-18-見本24-掲載文言-監査承認.md",
+                      "title":  "見本24・掲載文言承認",
+                      "group":  "確定",
+                      "tags":  [
+                                   "確定",
+                                   "見本",
+                                   "文言"
+                               ]
+                  },
+                  {
+                      "slug":  "mentor-0831",
+                      "path":  "docs/進行中/2026-08-31-メンター面談メモ.md",
+                      "title":  "8/31 メンター面談",
+                      "group":  "書庫",
+                      "tags":  [
+                                   "書庫",
+                                   "メンター"
+                               ]
+                  },
+                  {
+                      "slug":  "sample-ui",
+                      "path":  "docs/進行中/2026-08-29-見本UI-メガネ式設計.md",
+                      "title":  "見本UI・メガネ式",
+                      "group":  "書庫",
+                      "tags":  [
+                                   "書庫",
+                                   "見本"
+                               ]
+                  },
+                  {
+                      "slug":  "oku-don",
+                      "path":  "docs/確定/2026-08-29-奥手前ドーン型.md",
+                      "title":  "奥手前ドーン型",
+                      "group":  "書庫",
+                      "tags":  [
+                                   "書庫",
+                                   "デザイン"
+                               ]
+                  },
+                  {
+                      "slug":  "order-ui-old",
+                      "path":  "docs/進行中/2026-09-05-注文画面表示設計.md",
+                      "title":  "注文画面表示設計（旧入口注記）",
+                      "group":  "書庫",
+                      "tags":  [
+                                   "書庫",
+                                   "旧導線"
+                               ]
+                  },
+                  {
+                      "slug":  "ui-classify-v01",
+                      "path":  "docs/進行中/2026-09-13-UI分類辞書-Ver0.1.md",
+                      "title":  "UI分類辞書 Ver0.1",
+                      "group":  "書庫",
+                      "tags":  [
+                                   "書庫",
+                                   "UI"
+                               ]
+                  },
+                  {
+                      "slug":  "ui-classify-v02",
+                      "path":  "docs/進行中/2026-09-13-UI分類辞書-Ver0.2-Hierarchy意味設計.md",
+                      "title":  "UI分類辞書 Ver0.2 Hierarchy",
+                      "group":  "書庫",
+                      "tags":  [
+                                   "書庫",
+                                   "UI"
+                               ]
+                  }
+              ]
 }
